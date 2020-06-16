@@ -20,6 +20,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean register(User user) throws Exception {
-		return MyBatisUtils.getMapper(UserDao.class).register(user) == 1;
+		int res = MyBatisUtils.getMapper(UserDao.class).register(user);
+		if (res == 1) {
+			MyBatisUtils.commit();
+			return true;
+		}
+		return false;
 	}
 }

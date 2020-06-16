@@ -3,6 +3,49 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.fengmi.dao.UserDao">
+    <select id="login" resultType="com.fengmi.entity.User">
+        select *
+        from t_user
+        where username = #{username}
+          and password = #{password}
+    </select>
 
+    <select id="getUserByName" resultType="com.fengmi.entity.User">
+        select *
+        from t_user
+        where username = #{username}
+    </select>
 
+    <insert id="register" parameterType="com.fengmi.entity.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="mail != null">
+                mail,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="phone != null">
+                #{phone},
+            </if>
+            <if test="mail != null">
+                #{mail},
+            </if>
+        </trim>
+    </insert>
 </mapper>

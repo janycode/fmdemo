@@ -15,7 +15,7 @@ import com.fengmi.service.impl.UserServiceImpl;
 @WebServlet("/user")
 public class UserServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
-	// µÇÂ½½á¹û±ê¼ÇÐÅÏ¢
+	// ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	private static final String LOGIN_SUCCESS = "1";
 	private static final String LOGIN_ERROR = "2";
 	private static final String LOGIN_CODE_ERR = "3";
@@ -23,7 +23,7 @@ public class UserServlet extends BaseServlet {
 	private UserService userService = new UserServiceImpl();
 	
 	/**
-	 * µÇÂ½·½·¨ login
+	 * ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ login
 	 * @param request
 	 * @param response
 	 * @return
@@ -38,7 +38,7 @@ public class UserServlet extends BaseServlet {
 			System.out.println("inputQrCode = " + inputQrCode);
 			System.out.println("generQrCode = " + qrCode);
 			if (!qrCode.equals(inputQrCode)) {
-				// ÑéÖ¤Âë´íÎó
+				// ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½
 				response.getWriter().print(LOGIN_CODE_ERR);
 				return;
 			}
@@ -46,11 +46,11 @@ public class UserServlet extends BaseServlet {
 			User existUser = userService.login(user);
 			System.out.println(existUser + "");
 			if (null != existUser) {
-				// µÇÂ½³É¹¦ - Ò³ÃæÓÐÌø×ª
+				// ï¿½ï¿½Â½ï¿½É¹ï¿½ - Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 				request.getSession().setAttribute("existUser", existUser);
 				response.getWriter().print(LOGIN_SUCCESS);
 			} else {
-				// µÇÂ½Ê§°Ü
+				// ï¿½ï¿½Â½Ê§ï¿½ï¿½
 				response.getWriter().print(LOGIN_ERROR);
 			}
 		} catch (Exception e) {
@@ -59,8 +59,8 @@ public class UserServlet extends BaseServlet {
 	}
 	
 	/**
-	 * Ð£ÑéÓÃ»§Ãû·½·¨£ºvalidateUsr
-	 * ´æÔÚÏìÓ¦ true£»²»´æÔÚÏìÓ¦ false
+	 * Ð£ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½validateUsr
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ false
 	 * @param request
 	 * @param response
 	 */
@@ -80,7 +80,7 @@ public class UserServlet extends BaseServlet {
 	}
 	
 	/**
-	 * ×¢²á·½·¨ register
+	 * ×¢ï¿½á·½ï¿½ï¿½ register
 	 * @param request
 	 * @param response
 	 */
@@ -92,8 +92,8 @@ public class UserServlet extends BaseServlet {
 			System.out.println("register: " + user);
 			
 			if (userService.register(user)) {
-				// ×¢²á³É¹¦£¬ÖØ¶¨Ïòµ½³É¹¦Ò³Ãæ
-				response.sendRedirect(request.getContextPath() + File.separator + "before/success.html");
+				// ×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½òµ½³É¹ï¿½Ò³ï¿½ï¿½
+				response.sendRedirect(request.getContextPath() + File.separator + "before/success.jsp");
 			} else {
 				//nothing to do.
 			}

@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,7 +21,7 @@
 				<div class="login_center">
 					<div class="login_top">
 						<div class="left fl">会员登录</div>
-						<div class="right fr">您还不是我们的会员？<a href="./register.html" target="_self">立即注册</a></div>
+						<div class="right fr">您还不是我们的会员？<a href="register.jsp" target="_self">立即注册</a></div>
 						<div class="clear"></div>
 						<div class="xian center"></div>
 					</div>

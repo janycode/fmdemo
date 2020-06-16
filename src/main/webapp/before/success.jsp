@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,9 +40,9 @@
 					<div class="gouwuche fr"><a href="">购物车</a></div>
 					<div class="fr">
 						<ul>
-							<li><a href="./login.html" target="_blank">登录</a></li>
+							<li><a href="login.jsp" target="_blank">登录</a></li>
 							<li>|</li>
-							<li><a href="./register.html" target="_blank" >注册</a></li>
+							<li><a href="register.jsp" target="_blank" >注册</a></li>
 							<li>|</li>
 							<li><a href="">消息通知</a></li>
 						</ul>
@@ -54,7 +56,7 @@
 
 <!-- start banner_x -->
 		<div class="banner_x center">
-			<a href="./index.html" target="_blank"><div class="logo fl"></div></a>
+			<a href="./index.jsp" target="_blank"><div class="logo fl"></div></a>
 			<a href=""><div class="ad_top fl"></div></a>
 			<div class="nav fl">
 				<ul>

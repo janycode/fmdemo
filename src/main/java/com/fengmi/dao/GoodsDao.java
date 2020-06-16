@@ -1,12 +1,10 @@
 package com.fengmi.dao;
 
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
 import com.fengmi.entity.Goods;
 import com.fengmi.entity.QueryCondition;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GoodsDao {
 
