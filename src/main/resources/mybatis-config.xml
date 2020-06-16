@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="c3p0.properties" />
+    <settings>
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+<!--    <typeAliases>-->
+<!--        <package name="com.fengmi.entity"/>-->
+<!--    </typeAliases>-->
+
+    <environments default="c3p0">
+        <environment id="c3p0">
+            <transactionManager type="JDBC"/>
+            <dataSource type="org.apache.ibatis.datasource.pooled.PooledDataSourceFactory">
+                <property name="driver" value="${c3p0.driverClass}"/>
+                <property name="url" value="${c3p0.jdbcUrl}"/>
+                <property name="username" value="${c3p0.user}"/>
+                <property name="password" value="${c3p0.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/fengmi/dao/impl/AdminMapper.xml" />
+        <mapper resource="com/fengmi/dao/impl/GoodsMapper.xml" />
+        <mapper resource="com/fengmi/dao/impl/UserMapper.xml" />
+    </mappers>
+
+</configuration>

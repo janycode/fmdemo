@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fengmi.dao.GoodsDao">
+    <resultMap id="getAllGoodsResultMap" type="com.fengmi.entity.Goods">
+        <id column="id" property="id"/>
+        <association property="goodsType" javaType="com.fengmi.entity.GoodsType">
+            <id column="id" property="id"/>
+        </association>
+    </resultMap>
+    <select id="getAllGoods" resultMap="getAllGoodsResultMap">
+        select t_goods.id,
+               goodsName,
+               price,
+               imgPath,
+               deployDate,
+               description,
+               typeId,
+               typename
+        from t_goods,
+             t_goodstype
+        where t_goods.typeId = t_goodstype.id
+    </select>
+
+
+    <select id="getTotalNumber" resultType="Integer">
+        select count(1)
+        from t_goods;
+    </select>
+
+    <resultMap id="getGoodsByPageResultMap" type="com.fengmi.entity.Goods">
+        <id column="id" property="id"/>
+        <association property="goodsType" javaType="com.fengmi.entity.GoodsType">
+            <id column="id" property="id"/>
+        </association>
+    </resultMap>
+    <select id="getGoodsByPage" resultMap="getGoodsByPageResultMap">
+        SELECT t_goods.id,
+               goodsName,
+               price,
+               imgPath,
+               deployDate,
+               description,
+               typeId,
+               typename
+        from t_goods,
+             t_goodstype
+        where t_goods.typeId = t_goodstype.id
+        limit #{offset},#{pageSize}
+    </select>
+
+    <insert id="addGoods" parameterType="com.fengmi.entity.Goods">
+        insert into t_goods
+        values (#{id}, #{goodsName}, #{price}, #{imgPath}, #{deployDate}, #{description}, #{typeId})
+    </insert>
+
+    <delete id="delGoodsById" parameterType="Integer">
+        delete
+        from t_goods
+        where id = #{id}
+    </delete>
+
+    <update id="updateOneGoods" parameterType="com.fengmi.entity.Goods">
+        update t_goods
+        set goodsName=#{goodsName},
+            price=#{price},
+            imgPath=#{imgPath},
+            deployDate=#{deployDate},
+            description=#{description},
+            typeId=#{typeId}
+        where id = #{id}
+    </update>
+
+    <resultMap id="getGoodsByIdResultMap" type="com.fengmi.entity.Goods">
+        <id column="id" property="id"/>
+        <association property="goodsType" javaType="com.fengmi.entity.GoodsType">
+            <id column="id" property="id"/>
+        </association>
+    </resultMap>
+    <select id="getGoodsById" resultMap="getGoodsByIdResultMap">
+        select t_goods.id,
+               goodsName,
+               price,
+               imgPath,
+               deployDate,
+               description,
+               typeId,
+               typename
+        from t_goods,
+             t_goodstype
+        where t_goods.typeId = t_goodstype.id
+          and t_goods.id = #{id}
+    </select>
+</mapper>
