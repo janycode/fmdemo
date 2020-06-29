@@ -20,5 +20,6 @@ public interface GoodsService {
 
     boolean delGoodsById(Integer id) throws Exception;
 
+    // 使用分页插件 pageHelper
     PageBean<Goods> queryGoodsByCondition(Integer currentPageNo, QueryCondition condition) throws Exception;
 }

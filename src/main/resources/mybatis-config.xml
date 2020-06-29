@@ -13,6 +13,10 @@
 <!--        <package name="com.fengmi.entity"/>-->
 <!--    </typeAliases>-->
 
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor" />
+    </plugins>
+    
     <environments default="c3p0">
         <environment id="c3p0">
             <transactionManager type="JDBC"/>

@@ -92,6 +92,7 @@ public class GoodsServiceImpl implements GoodsService {
 		pageBean.setTotalSize(totalSize);
 		// 每页记录数 - 默认值
 		Integer pageSize = pageBean.getPageSize();
+		System.out.println("pageSize=" + pageSize);
 		// 总页数
 		Integer totalPage = (totalSize % pageSize == 0) ? (totalSize / pageSize) : (totalSize / pageSize + 1);
 		pageBean.setTotalPage(totalPage);

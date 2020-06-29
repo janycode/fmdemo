@@ -29,6 +29,7 @@
         from t_goods;
     </select>
 
+
     <resultMap id="getGoodsByPageResultMap" type="com.fengmi.entity.Goods">
         <id column="id" property="id"/>
         <association property="goodsType" javaType="com.fengmi.entity.GoodsType">
@@ -50,16 +51,19 @@
         limit #{offset},#{pageSize}
     </select>
 
+
     <insert id="addGoods" parameterType="com.fengmi.entity.Goods">
         insert into t_goods
         values (#{id}, #{goodsName}, #{price}, #{imgPath}, #{deployDate}, #{description}, #{typeId})
     </insert>
+
 
     <delete id="delGoodsById" parameterType="Integer">
         delete
         from t_goods
         where id = #{id}
     </delete>
+
 
     <update id="updateOneGoods" parameterType="com.fengmi.entity.Goods">
         update t_goods
@@ -71,6 +75,7 @@
             typeId=#{typeId}
         where id = #{id}
     </update>
+
 
     <resultMap id="getGoodsByIdResultMap" type="com.fengmi.entity.Goods">
         <id column="id" property="id"/>
@@ -92,4 +97,5 @@
         where t_goods.typeId = t_goodstype.id
           and t_goods.id = #{id}
     </select>
+
 </mapper>

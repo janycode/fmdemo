@@ -87,7 +87,7 @@
 <!-- end banner_x -->
 	<div  style="text-align:center;">
 		 
-		<h2 style="color:red">恭喜您，注册成功，请尽快到您的邮箱进行激活，立即登录，请点击<a href='../before/login.html'>登录</a></h2>
+		<h2 style="color:red">恭喜您，注册成功，请尽快到您的邮箱进行激活，立即登录，请点击<a href='../before/login.jsp'>登录</a></h2>
 		<div class="clear"></div>
 	</div>
 	

@@ -10,11 +10,13 @@
           and password = #{password}
     </select>
 
+
     <select id="getUserByName" resultType="com.fengmi.entity.User">
         select *
         from t_user
         where username = #{username}
     </select>
+
 
     <insert id="register" parameterType="com.fengmi.entity.User">
         insert into t_user
